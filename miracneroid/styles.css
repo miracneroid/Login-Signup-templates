@@ -1,0 +1,485 @@
+/* CSS Variables - Design System */
+:root {
+    --background: hsl(250, 100%, 6%);
+    --foreground: hsl(0, 0%, 98%);
+    --card: hsl(250, 50%, 10%);
+    --card-foreground: hsl(0, 0%, 98%);
+    --primary: hsl(280, 90%, 65%);
+    --primary-foreground: hsl(0, 0%, 100%);
+    --secondary: hsl(190, 95%, 55%);
+    --secondary-foreground: hsl(250, 100%, 6%);
+    --muted: hsl(250, 30%, 20%);
+    --muted-foreground: hsl(0, 0%, 65%);
+    --accent: hsl(280, 90%, 65%);
+    --accent-foreground: hsl(0, 0%, 100%);
+    --border: hsl(250, 30%, 20%);
+    --input: hsl(250, 30%, 18%);
+    --ring: hsl(280, 90%, 65%);
+    --radius: 0.75rem;
+    --gradient-primary: linear-gradient(135deg, hsl(280, 90%, 65%), hsl(260, 90%, 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(190, 95%, 55%), hsl(210, 90%, 60%));
+    --glass-bg: hsla(250, 50%, 15%, 0.7);
+    --glass-border: hsla(0, 0%, 100%, 0.1);
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container */
+.container {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated Background Elements */
+.background-elements {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.bg-element {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+}
+
+.bg-element-1 {
+    top: 25%;
+    left: -5rem;
+    width: 24rem;
+    height: 24rem;
+    background: hsla(280, 90%, 65%, 0.3);
+    animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.bg-element-2 {
+    bottom: 25%;
+    right: -5rem;
+    width: 24rem;
+    height: 24rem;
+    background: hsla(190, 95%, 55%, 0.3);
+    animation: pulse-glow 4s ease-in-out infinite;
+    animation-delay: 2s;
+}
+
+.bg-element-3 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 37.5rem;
+    height: 37.5rem;
+    background: hsla(280, 90%, 65%, 0.2);
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Main Content */
+.main-content {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* Auth Card */
+.auth-card {
+    width: 100%;
+    max-width: 28rem;
+    backdrop-filter: blur(20px);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 1rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 2rem;
+    animation: fade-in 0.6s ease-out;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    background: var(--gradient-primary);
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.logo-icon {
+    width: 2rem;
+    height: 2rem;
+    color: white;
+}
+
+.title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+}
+
+/* Form */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-label {
+    color: var(--foreground);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: hsla(250, 30%, 18%, 0.5);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--foreground);
+    font-size: 0.875rem;
+    backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px hsla(280, 90%, 65%, 0.2);
+}
+
+.form-input::placeholder {
+    color: var(--muted-foreground);
+}
+
+/* Password Input */
+.password-input-container {
+    position: relative;
+}
+
+.password-input {
+    padding-right: 2.5rem;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--muted-foreground);
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.password-toggle:hover {
+    color: var(--foreground);
+}
+
+.eye-icon {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Confirm Password Animation */
+.confirm-password-group {
+    animation: slide-in 0.5s ease-out;
+}
+
+/* Forgot Password */
+.forgot-password {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.forgot-link {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.forgot-link:hover {
+    color: hsla(280, 90%, 65%, 0.8);
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 1.5rem 1rem;
+    background: var(--gradient-primary);
+    border: none;
+    border-radius: var(--radius);
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.submit-btn:hover {
+    opacity: 0.9;
+}
+
+/* Auth Toggle */
+.auth-toggle {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.toggle-text {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+}
+
+.toggle-link {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    margin-left: 0.25rem;
+}
+
+.toggle-link:hover {
+    color: hsla(280, 90%, 65%, 0.8);
+}
+
+/* Divider */
+.divider {
+    position: relative;
+    margin: 1.5rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.divider-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.divider-text {
+    padding: 0 0.5rem;
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    background: var(--glass-bg);
+}
+
+/* Social Buttons */
+.social-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: hsla(250, 30%, 18%, 0.3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--foreground);
+    font-size: 0.875rem;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+}
+
+.social-btn:hover {
+    background: hsla(250, 30%, 18%, 0.5);
+}
+
+.social-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* Footer Text */
+.footer-text {
+    text-align: center;
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+/* Toast Notification */
+.toast {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25);
+    display: none;
+    z-index: 1000;
+    min-width: 20rem;
+    animation: slide-in-right 0.3s ease-out;
+}
+
+.toast.show {
+    display: flex;
+}
+
+.toast-content {
+    flex: 1;
+}
+
+.toast-title {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--foreground);
+}
+
+.toast-description {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+}
+
+.toast-close {
+    background: none;
+    border: none;
+    color: var(--muted-foreground);
+    cursor: pointer;
+    font-size: 1.25rem;
+    margin-left: 1rem;
+    padding: 0;
+    line-height: 1;
+}
+
+.toast-close:hover {
+    color: var(--foreground);
+}
+
+/* Animations */
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(-50%, -50%) translateY(0px);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateY(-20px);
+    }
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-in-right {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .main-content {
+        padding: 0.5rem;
+    }
+    
+    .auth-card {
+        padding: 1.5rem;
+    }
+    
+    .title {
+        font-size: 1.5rem;
+    }
+    
+    .social-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .toast {
+        right: 0.5rem;
+        left: 0.5rem;
+        min-width: auto;
+    }
+}
