@@ -26,7 +26,7 @@ A sleek, modern, and fully responsive **Login & Signup page** designed with **gl
 
 ## 🖼️ Preview
 
-![Ayush Modern Login Screenshot](screenshot/miracneroid.png)
+![Ayush Modern Login Screenshot](miracneroid.png)
 
 ---
 
